@@ -1,0 +1,54 @@
+# Example Configuration for Quick Start
+# Small models and limited dataset for fast testing
+
+project_name: "quick_test"
+output_dir: "./outputs/quick_test"
+seed: 42
+cache_dir: "./cache"
+
+# Teacher models - using small models for testing
+teachers:
+  - model_id: "gpt2"  # 124M params
+    weight: 0.6
+    use_8bit: false
+    trust_remote_code: true
+  
+  - model_id: "distilgpt2"  # 82M params
+    weight: 0.4
+    use_8bit: false
+    trust_remote_code: true
+
+# Dataset - small sample for quick testing
+dataset:
+  source_type: "huggingface"
+  source_path: "wikitext"
+  config_name: "wikitext-2-raw-v1"
+  split: "train"
+  text_column: "text"
+  max_samples: 1000  # Only 1000 samples for quick test
+
+# Student model - small architecture
+student:
+  vocab_size: 50257  # GPT-2 vocab size
+  hidden_size: 512
+  intermediate_size: 1536
+  num_hidden_layers: 8
+  num_attention_heads: 8
+  max_position_embeddings: 1024
+
+# Training - fast settings
+training:
+  batch_size: 4
+  num_epochs: 1
+  max_length: 256
+  gradient_accumulation_steps: 2
+  learning_rate: 5.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  temperature: 2.0
+  alpha: 0.7
+  use_fp16: false
+  use_bf16: false
+  save_steps: 100
+  save_total_limit: 2
+  logging_steps: 10

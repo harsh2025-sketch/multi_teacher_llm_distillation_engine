@@ -1,0 +1,14 @@
+include README.md
+include LICENSE
+include CONTRIBUTING.md
+include requirements.txt
+include pyproject.toml
+
+recursive-include src *.py
+recursive-include examples *.yaml *.json
+recursive-include assets *.png *.svg *.jpg
+
+exclude .gitignore
+recursive-exclude __pycache__ *
+recursive-exclude *.pyc *
+recursive-exclude .git *

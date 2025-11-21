@@ -1,0 +1,126 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multi-teacher-distillation"
+version = "1.0.0"
+description = "Production-ready, fully automated engine for knowledge distillation from multiple large language models into compact student models"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Multi-Teacher LLM Distillation Engine Contributors"}
+]
+keywords = [
+    "machine-learning",
+    "deep-learning",
+    "nlp",
+    "knowledge-distillation",
+    "llm",
+    "transformers",
+    "pytorch",
+    "multi-teacher",
+    "model-compression"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+dependencies = [
+    "torch>=2.0.0",
+    "transformers>=4.35.0",
+    "accelerate>=0.24.0",
+    "bitsandbytes>=0.41.0",
+    "datasets>=2.14.0",
+    "pandas>=2.0.0",
+    "pyarrow>=13.0.0",
+    "pyyaml>=6.0",
+    "dataclasses-json>=0.6.0",
+    "tqdm>=4.65.0",
+    "tensorboard>=2.14.0",
+    "huggingface-hub>=0.17.0",
+    "safetensors>=0.4.0",
+    "numpy>=1.24.0",
+    "scipy>=1.11.0"
+]
+
+[project.optional-dependencies]
+webui = [
+    "gradio>=4.0.0"
+]
+dev = [
+    "pytest>=7.4.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0"
+]
+all = [
+    "multi-teacher-distillation[webui,dev]"
+]
+
+[project.urls]
+Homepage = "https://github.com/harsh2025-sketch/multi_teacher_llm_distillation_engine"
+Repository = "https://github.com/harsh2025-sketch/multi_teacher_llm_distillation_engine"
+Issues = "https://github.com/harsh2025-sketch/multi_teacher_llm_distillation_engine/issues"
+
+[project.scripts]
+distill-cli = "src.cli:main"
+distill-webui = "src.web_ui:main"
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.setuptools.package-data]
+src = ["py.typed"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | \.tox
+  | build
+  | dist
+  | __pycache__
+)/
+'''
+
+[tool.flake8]
+max-line-length = 100
+extend-ignore = ["E203", "W503"]
+exclude = [
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+    ".venv",
+    ".tox"
+]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"

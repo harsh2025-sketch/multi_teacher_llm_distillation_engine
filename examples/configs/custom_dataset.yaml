@@ -1,0 +1,47 @@
+# Configuration for Custom/User-Uploaded Dataset
+# Example of using local files instead of HuggingFace datasets
+
+project_name: "custom_dataset_distillation"
+output_dir: "./outputs/custom_data"
+seed: 42
+cache_dir: "./cache"
+
+# Teacher models
+teachers:
+  - model_id: "meta-llama/Llama-3.2-3B-Instruct"
+    weight: 0.5
+    use_8bit: true
+    trust_remote_code: true
+  
+  - model_id: "google/gemma-2-2b-it"
+    weight: 0.5
+    use_8bit: true
+    trust_remote_code: true
+
+# Dataset - using local file
+dataset:
+  source_type: "local_file"
+  source_path: "./data/my_dataset.jsonl"  # Path to your file
+  file_format: "jsonl"  # json, jsonl, csv, txt, or parquet
+  text_column: "text"  # Column name containing text
+  max_samples: null  # Use all samples
+
+# Student model
+student:
+  vocab_size: 128256
+  hidden_size: 768
+  num_hidden_layers: 12
+  num_attention_heads: 12
+
+# Training
+training:
+  batch_size: 4
+  num_epochs: 3
+  max_length: 512
+  gradient_accumulation_steps: 4
+  learning_rate: 5.0e-5
+  temperature: 2.0
+  alpha: 0.7
+  use_bf16: true
+  save_steps: 500
+  logging_steps: 10
