@@ -609,7 +609,7 @@ This implementation is based on:
 
 ## License
 
-MIT License - see LICENSE file for details.
+Apache License 2.0 - see `LICENSE` file for details.
 
 ## Acknowledgments
 
@@ -1063,7 +1063,7 @@ teacher = AutoModelForCausalLM.from_pretrained(
 
 ## License
 
-MIT License - see LICENSE file for details.
+Apache License 2.0 - see `LICENSE` file for details.
 
 ## Acknowledgments
 
