@@ -538,46 +538,6 @@ outputs/
 2. Let engine auto-align: `vocab_size: 128256`
 3. Check tokenizer compatibility in logs
 
-## Architecture Details
-
-### What Makes This Different?
-
-This is a **direct/online distillation** framework where teacher models run inference at each training step:
-
-```
-Training Step:
-1. Load batch of text
-2. Teacher 1 forward pass → logits_1
-3. Teacher 2 forward pass → logits_2 
-4. Average: teacher_logits = weighted_avg(logits_1, logits_2)
-5. Student forward pass → student_logits
-6. Compute loss: KL(student || teacher) + CE(student, labels)
-7. Backprop and update student
-```
-
-**Advantages:**
-- Flexible - easily swap teachers
-- Accurate - real-time teacher guidance
-- Simple - no pre-processing needed
-
-**Trade-offs:**
-- Higher memory (all models in memory)
-- Slower (teacher inference at each step)
-
-### Student Architecture
-
-Modern **LLaMA-style** transformer:
-- **RMSNorm** for normalization
-- **RoPE** for positional encoding
-- **SwiGLU** activation
-- **Grouped-Query Attention** (optional)
-
-Optimized for:
-- Fast inference
-- Efficient training
-- Small model size
-- HuggingFace compatibility
-
 
 ## License
 
