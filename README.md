@@ -68,7 +68,27 @@ pip install -e .
 
 ###  Web UI (Recommended for Beginners)
 
-Launch the user-friendly web interface:
+#### Option 1: Streamlit UI (Modern & Interactive)
+
+Launch the modern Streamlit interface:
+
+```bash
+streamlit run src/streamlit_ui.py
+```
+
+Then open your browser to `http://localhost:8501`
+
+**Features:**
+- 🎨 Modern, intuitive interface
+- 📋 Step-by-step configuration wizard
+- 📊 Real-time monitoring dashboard
+- 💾 Save/load configurations
+- 📚 Built-in documentation
+- 🎯 Architecture presets
+
+#### Option 2: Gradio UI (Simple & Fast)
+
+Launch the user-friendly Gradio web interface:
 
 ```bash
 python src/web_ui.py
