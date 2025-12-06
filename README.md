@@ -1,11 +1,5 @@
 # Automated Multi-Teacher LLM Distillation Engine
 
-<div align="center">
-  <img src="assets/svg.png" alt="Multi-Teacher LLM Distillation Architecture" width="800"/>
-</div>
-
-<div align="center">
-
 **Production-ready, fully automated engine** for knowledge distillation from multiple large language models into compact student models.
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
@@ -17,7 +11,7 @@
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
 **Complete Automation** • **HuggingFace Integration** • **Web UI** • **Multi-Teacher Support** • **Quantization Ready**
 
@@ -79,12 +73,12 @@ streamlit run src/streamlit_ui.py
 Then open your browser to `http://localhost:8501`
 
 **Features:**
-- 🎨 Modern, intuitive interface
-- 📋 Step-by-step configuration wizard
-- 📊 Real-time monitoring dashboard
-- 💾 Save/load configurations
-- 📚 Built-in documentation
-- 🎯 Architecture presets
+-  Modern, intuitive interface
+-  Step-by-step configuration wizard
+-  Real-time monitoring dashboard
+-  Save/load configurations
+-  Built-in documentation
+-  Architecture presets
 
 #### Option 2: Gradio UI (Simple & Fast)
 
