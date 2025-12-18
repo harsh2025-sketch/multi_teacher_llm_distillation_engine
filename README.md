@@ -13,7 +13,7 @@
 
 ##  Key Features
 
-**Complete Automation** • **HuggingFace Integration** • **Web UI** • **Multi-Teacher Support** • **Quantization Ready**
+**Complete Automation** • **HuggingFace Integration** • **Web UI** • **Multi-Teacher Support** • **Quantization Ready***
 
 ## New Features (Automated Engine)
 
