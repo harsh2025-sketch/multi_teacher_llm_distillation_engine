@@ -1,7 +1,5 @@
 # Automated Multi-Teacher LLM Distillation Engine
 
-**Production-ready, fully automated engine** for knowledge distillation from multiple large language models into compact student models.
-
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
